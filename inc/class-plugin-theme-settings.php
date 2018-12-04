@@ -21,7 +21,7 @@ class Plugin_or_Theme_Settings {
 		register_setting( 'plugin_theme_settings', 'plugin_or_theme_settings' );
 
 		add_settings_section(
-			'pluginPage_section',
+			'top_section',
 			__( 'This is the description area given for a settings page', 'plugin-theme-settings' ),
 			array( $this, 'plugin_or_theme_settings_section_callback' ),
 			'plugin_theme_settings'
@@ -32,7 +32,7 @@ class Plugin_or_Theme_Settings {
 			__( 'Describe the dropdown select in this field', 'plugin-theme-settings' ),
 			array( $this, 'select_field_0_render' ),
 			'plugin_theme_settings',
-			'pluginPage_section'
+			'top_section'
 		);
 
 		add_settings_field(
@@ -40,7 +40,7 @@ class Plugin_or_Theme_Settings {
 			__( 'Describe the text field in this field', 'plugin-theme-settings' ),
 			array( $this, 'text_field_0_render' ),
 			'plugin_theme_settings',
-			'pluginPage_section'
+			'top_section'
 		);
 
 		add_settings_field(
@@ -48,7 +48,7 @@ class Plugin_or_Theme_Settings {
 			__( 'Describe the checkbox in this field', 'plugin-theme-settings' ),
 			array( $this, 'checkbox_field_0_render' ),
 			'plugin_theme_settings',
-			'pluginPage_section'
+			'top_section'
 		);
 
 		add_settings_field(
@@ -56,7 +56,7 @@ class Plugin_or_Theme_Settings {
 			__( 'Describe the textarea in this field', 'plugin-theme-settings' ),
 			array( $this, 'textarea_field_0_render' ),
 			'plugin_theme_settings',
-			'pluginPage_section'
+			'top_section'
 		);
 
 		add_settings_field(
@@ -64,7 +64,7 @@ class Plugin_or_Theme_Settings {
 			__( 'Describe the radio button select in this field', 'plugin-theme-settings' ),
 			array( $this, 'radio_field_0_render' ),
 			'plugin_theme_settings',
-			'pluginPage_section'
+			'top_section'
 		);
 
 	}
@@ -80,7 +80,7 @@ class Plugin_or_Theme_Settings {
 		<option value='4' <?php selected( $options['select_field_0'], 4 ); ?>>Option 4</option>
 		</select>
 
-	<?php
+		<?php
 
 	}
 
@@ -136,7 +136,7 @@ class Plugin_or_Theme_Settings {
 		?>
 		<div style="wrap">
 		<form action='options.php' method='post'>
-			<h2>Plugin or Theme Settings title found in: <?php echo  __FUNCTION__; ?> function</h2>
+			<h2>Plugin or Theme Settings title found in: <?php echo __FUNCTION__; ?> function</h2>
 			<?php
 				settings_fields( 'plugin_theme_settings' );
 				do_settings_sections( 'plugin_theme_settings' );
