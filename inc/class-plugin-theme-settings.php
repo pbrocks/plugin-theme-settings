@@ -6,6 +6,7 @@ if ( class_exists( 'Plugin_or_Theme_Settings' ) ) {
 
 class Plugin_or_Theme_Settings {
 
+
 	public function __construct() {
 		add_action( 'admin_menu', array( $this, 'add_admin_menu' ) );
 		add_action( 'admin_init', array( $this, 'plugin_or_theme_settings_init' ) );
@@ -13,7 +14,6 @@ class Plugin_or_Theme_Settings {
 	public function add_admin_menu() {
 
 		add_options_page( 'Plugin or Theme Settings', 'Plugin or Theme Settings', 'manage_options', 'plugin-theme-settings.php', array( $this, 'options_page' ) );
-
 	}
 
 	public function plugin_or_theme_settings_init() {
@@ -66,7 +66,6 @@ class Plugin_or_Theme_Settings {
 			'plugin_theme_settings',
 			'top_section'
 		);
-
 	}
 
 	public function select_field_0_render() {
@@ -81,7 +80,6 @@ class Plugin_or_Theme_Settings {
 		</select>
 
 		<?php
-
 	}
 
 	public function text_field_0_render() {
@@ -90,7 +88,6 @@ class Plugin_or_Theme_Settings {
 		?>
 		<input type='text' name='plugin_or_theme_settings[text_field_0]' value='<?php echo $options['text_field_0']; ?>'>
 		<?php
-
 	}
 
 	public function checkbox_field_0_render() {
@@ -99,18 +96,14 @@ class Plugin_or_Theme_Settings {
 		?>
 		<input type='checkbox' name='plugin_or_theme_settings[checkbox_field_0]' <?php checked( $options['checkbox_field_0'], 1 ); ?> value='1'>
 		<?php
-
 	}
 
 	public function textarea_field_0_render() {
 
 		$options = get_option( 'plugin_or_theme_settings' );
 		?>
-		<textarea cols='40' rows='5' name='plugin_or_theme_settings[textarea_field_0]'> 
-		<?php echo $options['textarea_field_0']; ?>
-	 </textarea>
+		<textarea cols='40' rows='5' name='plugin_or_theme_settings[textarea_field_0]'><?php echo $options['textarea_field_0']; ?></textarea>
 		<?php
-
 	}
 
 	public function radio_field_0_render() {
@@ -123,13 +116,11 @@ class Plugin_or_Theme_Settings {
 		<label>Radio 2
 		<input type='radio' name='plugin_or_theme_settings[radio_field_0]' <?php checked( $options['radio_field_0'], 2 ); ?> value='2'></label>
 		<?php
-
 	}
 
 	public function plugin_or_theme_settings_section_callback() {
 
 		echo __( '<em style="padding:1rem;">This description is found in this function <b>' . __FUNCTION__ . ' </b>and provides an paragraph-type area below the headings and above the individual settings.</em>', 'plugin-theme-settings' );
-
 	}
 
 	public function options_page() {

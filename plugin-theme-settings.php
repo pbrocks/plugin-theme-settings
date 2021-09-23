@@ -7,4 +7,5 @@
 
 defined( 'ABSPATH' ) || die( 'File cannot be accessed directly' );
 
-require( 'inc/class-plugin-theme-settings.php' );
+require 'inc/class-plugin-theme-settings.php';
+require 'inc/class-tabbed-settings.php';
