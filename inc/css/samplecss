@@ -1,0 +1,60 @@
+h1,
+p {
+	margin: 0 0 1em 0;
+}
+
+/**
+ * no grid support? 
+ */
+.sidebar {
+	float: left;
+}
+
+.content {
+	float: right;
+}
+
+/**
+ * make a grid 
+ */
+.grid-wrapper {
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1fr 4fr;
+	grid-gap: 0.5rem;
+}
+
+.grid-wrapper > * {
+	background-color: mintcream;
+	color: maroon;
+	border-radius: 0.2rem;
+	padding: 1rem;
+	font-size: 150%;
+	/* needed for the floated layout*/
+	margin-bottom: 0.5rem;
+}
+h4 {
+	margin: 0 0 1rem;
+}
+.header,
+.footer {
+	grid-column: 1 / -1;
+	/* needed for the floated layout */
+	clear: both;
+}
+
+#poststuff > form > div > article > pre {
+	white-space: pre-wrap;
+}
+
+input.wide {
+	width: 77%;
+	line-height: 2;
+}
+
+@supports (display: grid) {
+	.grid-wrapper > * {
+		width: auto;
+		margin: 0;
+	}
+}

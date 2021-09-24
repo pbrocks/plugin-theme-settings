@@ -1,23 +1,24 @@
 <?php
+/**
+ * 
+ */
+
 defined( 'ABSPATH' ) || die( 'File cannot be accessed directly' );
-if ( class_exists( 'Plugin_or_Theme_Settings' ) ) {
-	new Plugin_or_Theme_Settings();
-}
 
+/**
+ * Undocumented class
+ */
 class Plugin_or_Theme_Settings {
-
 
 	public function __construct() {
 		add_action( 'admin_menu', array( $this, 'add_admin_menu' ) );
 		add_action( 'admin_init', array( $this, 'plugin_or_theme_settings_init' ) );
 	}
 	public function add_admin_menu() {
-
 		add_options_page( 'Plugin or Theme Settings', 'Plugin or Theme Settings', 'manage_options', 'plugin-theme-settings.php', array( $this, 'options_page' ) );
 	}
 
 	public function plugin_or_theme_settings_init() {
-
 		register_setting( 'plugin_theme_settings', 'plugin_or_theme_settings' );
 
 		add_settings_section(
@@ -152,4 +153,7 @@ class Plugin_or_Theme_Settings {
 		echo '<h4>' . __FUNCTION__ . '</h4>';
 		echo '<li>Should make sure the settings get deleted if uninstalled</li>';
 	}
+}
+if ( class_exists( 'Plugin_or_Theme_Settings' ) ) {
+	new Plugin_or_Theme_Settings();
 }
